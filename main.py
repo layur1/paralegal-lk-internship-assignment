@@ -26,6 +26,13 @@ def extract_bench(text):
 
 
 def extract_author(text):
+    pattern = r'Author\s*[:\-]?\s*(.+)'
+    match = re.search(pattern, text, re.IGNORECASE)
+    if match:
+        line = match.group(1)
+        names = re.split(r',|\n', line)
+        return [name.strip() for name in names if name.strip()]
+
     return []
 
 
