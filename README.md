@@ -7,7 +7,7 @@ git clone https://github.com/layur1/paralegal-lk-internship-assignment.git
 ## Setup
 
 
-cd paralegal-lk-internship-assignment
+cd paralegal internship
 uv sync
 
 
