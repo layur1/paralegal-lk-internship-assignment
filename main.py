@@ -26,26 +26,14 @@ def extract_bench(text):
 
 
 def extract_author(text):
-    if not text:
-        return []
+    pattern = r'Authored by\s*[:\-]?\s*(.+)'
+    match = re.search(pattern, text, re.IGNORECASE)
 
-    patterns = [
-        r'Author(?:s)?\s*[:\-]\s*(.+)',
-        r'Authored by\s*[:\-]\s*(.+)',
-        r'By\s*[:\-]?\s*(.+)',
-    ]
-
-    for pattern in patterns:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            author_line = match.group(1).strip()
-            author_line = author_line.splitlines()[0].strip()
-            authors = [
-                a.strip()
-                for a in re.split(r',|;|\band\b', author_line, flags=re.IGNORECASE)
-                if a.strip()
-            ]
-            return authors if authors else [author_line]
+    if match:
+        line = match.group(1)
+        # Assuming single author, take the first name
+        names = re.split(r',|\n', line)
+        return [name.strip() for name in names if name.strip()][:1]  # Limit to one if multiple
 
     return []
 
