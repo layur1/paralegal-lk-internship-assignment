@@ -1,5 +1,9 @@
 # paralegal-lk-internship-assignment
 
+## Clone the repository
+
+git clone https://github.com/layur1/paralegal-lk-internship-assignment.git
+
 ## Setup
 
 
