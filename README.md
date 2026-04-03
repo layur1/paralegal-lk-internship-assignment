@@ -1,7 +1,8 @@
 paralegal-lk-internship-assignment
 
 //Setup
-cd paralegal-lk-internship-assignment uv sync
+cd paralegal-lk-internship-assignment
+uv sync
 
 //Running
 uv run python main.py
